@@ -1,11 +1,16 @@
 <script setup>
-import { ref } from 'vue'
-const nombre = ref('')
+/* import { ref } from 'vue'
+const nombre = ref('') */
 /* const leerNombre = e => {
     nombre.value = e.target.value
 } */
 
 
+import { reactive } from 'vue'
+const paciente = reactive({
+    nombre: '',
+    propietario: ''
+})
 </script>
 
 <template>
@@ -17,7 +22,8 @@ const nombre = ref('')
         </p>
 
         <form action="" class="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
-            {{ nombre }}
+            {{ paciente.nombre }}
+            {{ paciente.propietario }}
             <div class="mb-5">
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">
                     Nombre Mascota
@@ -26,7 +32,7 @@ const nombre = ref('')
                     class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" :value="nombre"
                     @input="leerNombre" /> -->
                 <input type="text" name="mascota" id="mascota" placeholder="Nombre de la mascota"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="nombre" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.nombre" />
             </div>
 
             <div class="mb-5">
@@ -34,7 +40,7 @@ const nombre = ref('')
                     Nombre Propietario
                 </label>
                 <input type="text" name="propietario" id="propietario" placeholder="Nombre del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.propietario" />
             </div>
 
             <div class="mb-5">
