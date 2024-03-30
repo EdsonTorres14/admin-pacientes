@@ -1,9 +1,11 @@
 <script setup>
 import { ref } from 'vue'
-const nombre = ref('Max')
-const leerNombre = e => {
+const nombre = ref('')
+/* const leerNombre = e => {
     nombre.value = e.target.value
-}
+} */
+
+
 </script>
 
 <template>
@@ -20,9 +22,11 @@ const leerNombre = e => {
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">
                     Nombre Mascota
                 </label>
-                <input type="text" name="mascota" id="mascota" placeholder="Nombre de la mascota"
+                <!-- <input type="text" name="mascota" id="mascota" placeholder="Nombre de la mascota"
                     class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" :value="nombre"
-                    @input="leerNombre" />
+                    @input="leerNombre" /> -->
+                <input type="text" name="mascota" id="mascota" placeholder="Nombre de la mascota"
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="nombre" />
             </div>
 
             <div class="mb-5">
