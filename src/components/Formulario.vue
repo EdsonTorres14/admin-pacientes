@@ -9,7 +9,10 @@ const nombre = ref('') */
 import { reactive } from 'vue'
 const paciente = reactive({
     nombre: '',
-    propietario: ''
+    propietario: '',
+    email: '',
+    alta: '',
+    sintomas: '',
 })
 </script>
 
@@ -22,8 +25,7 @@ const paciente = reactive({
         </p>
 
         <form action="" class="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
-            {{ paciente.nombre }}
-            {{ paciente.propietario }}
+
             <div class="mb-5">
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">
                     Nombre Mascota
@@ -48,7 +50,7 @@ const paciente = reactive({
                     Email
                 </label>
                 <input type="text" name="email" id="email" placeholder="Email del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.email" />
             </div>
 
             <div class="mb-5">
@@ -56,7 +58,7 @@ const paciente = reactive({
                     Alta
                 </label>
                 <input type="date" name="alta" id="alta"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.alta" />
             </div>
 
             <div class="mb-5">
@@ -64,7 +66,8 @@ const paciente = reactive({
                     Síntomas
                 </label>
                 <textarea name="sintomas" id="sintomas" placeholder="Describe los sintomas"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md h-40"></textarea>
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md h-40"
+                    v-model="paciente.sintomas"></textarea>
             </div>
 
             <input type="submit"
