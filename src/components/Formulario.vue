@@ -7,6 +7,14 @@ const nombre = ref('') */
 
 
 import { reactive } from 'vue'
+
+import Alerta from './Alerta.vue'
+
+const alerta = reactive({
+    tipo: '',
+    mensaje: ''
+})
+
 const paciente = reactive({
     nombre: '',
     propietario: '',
@@ -18,8 +26,9 @@ const paciente = reactive({
 const validar = () => {
     console.log(Object.values(paciente))
     if (Object.values(paciente).includes('')) {
-        console.log('Si estan vacios')
-        return 
+        alerta.mensaje = 'Todos los campos son obligatorios'
+        alerta.tipo = 'error'
+        return
     }
     console.log('despues')
 }
