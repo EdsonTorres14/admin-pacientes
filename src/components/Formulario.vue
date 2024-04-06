@@ -30,7 +30,7 @@ const validar = () => {
         alerta.tipo = 'error'
         return
     }
-    console.log('despues')
+    console.log('Agregando ....')
 }
 </script>
 
