@@ -15,7 +15,7 @@ const alerta = reactive({
     mensaje: ''
 })
 
-defineEmits(['update:nombre', 'update:propietario', 'update:email', 'update:alta', 'update:sintomas'])
+const emit = defineEmits(['update:nombre', 'update:propietario', 'update:email', 'update:alta', 'update:sintomas', 'guardar-paciente'])
 
 const props = defineProps({
     nombre: {
@@ -40,13 +40,14 @@ const props = defineProps({
     }
 })
 const validar = () => {
-    console.log(Object.values(props))
     if (Object.values(props).includes('')) {
         alerta.mensaje = 'Todos los campos son obligatorios'
         alerta.tipo = 'error'
         return
     }
-    console.log('Agregando ....')
+
+    emit('guardar-paciente')
+
 }
 </script>
 
