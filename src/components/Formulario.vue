@@ -15,7 +15,14 @@ const alerta = reactive({
     mensaje: ''
 })
 
+defineEmits(['update:nombre'])
 
+const props = defineProps({
+    nombre: {
+        type: String,
+        required: true
+    }
+})
 const validar = () => {
     console.log(Object.values(paciente))
     if (Object.values(paciente).includes('')) {
@@ -37,6 +44,8 @@ const validar = () => {
 
         <Alerta v-if="alerta.mensaje" :alerta="alerta" />
         <form action="" class="bg-white shadow-md rounded-lg py-10 px-5 mb-10" @submit.prevent="validar">
+            
+            {{ nombre }}
 
             <div class="mb-5">
                 <label for="mascota" class="block text-gray-700 uppercase font-bold">
@@ -46,7 +55,8 @@ const validar = () => {
                     class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" :value="nombre"
                     @input="leerNombre" /> -->
                 <input type="text" name="mascota" id="mascota" placeholder="Nombre de la mascota"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                    @input="$emit('update:nombre', $event.target.value)" />
             </div>
 
             <div class="mb-5">
@@ -62,7 +72,7 @@ const validar = () => {
                     Email
                 </label>
                 <input type="text" name="email" id="email" placeholder="Email del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"  />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
             </div>
 
             <div class="mb-5">
