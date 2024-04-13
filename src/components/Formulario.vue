@@ -15,13 +15,6 @@ const alerta = reactive({
     mensaje: ''
 })
 
-const paciente = reactive({
-    nombre: '',
-    propietario: '',
-    email: '',
-    alta: '',
-    sintomas: '',
-})
 
 const validar = () => {
     console.log(Object.values(paciente))
@@ -53,7 +46,7 @@ const validar = () => {
                     class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" :value="nombre"
                     @input="leerNombre" /> -->
                 <input type="text" name="mascota" id="mascota" placeholder="Nombre de la mascota"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.nombre" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
             </div>
 
             <div class="mb-5">
@@ -61,7 +54,7 @@ const validar = () => {
                     Nombre Propietario
                 </label>
                 <input type="text" name="propietario" id="propietario" placeholder="Nombre del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.propietario" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
             </div>
 
             <div class="mb-5">
@@ -69,7 +62,7 @@ const validar = () => {
                     Email
                 </label>
                 <input type="text" name="email" id="email" placeholder="Email del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.email" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"  />
             </div>
 
             <div class="mb-5">
@@ -77,7 +70,7 @@ const validar = () => {
                     Alta
                 </label>
                 <input type="date" name="alta" id="alta"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" v-model="paciente.alta" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
             </div>
 
             <div class="mb-5">
@@ -85,8 +78,7 @@ const validar = () => {
                     Síntomas
                 </label>
                 <textarea name="sintomas" id="sintomas" placeholder="Describe los sintomas"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md h-40"
-                    v-model="paciente.sintomas"></textarea>
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md h-40"></textarea>
             </div>
 
             <input type="submit"
