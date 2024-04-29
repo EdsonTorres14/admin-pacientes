@@ -20,7 +20,7 @@ const guardarPaciente = () => {
   if (paciente.id) {
     const { id } = paciente
 
-    const i = pacientes.value.findIndex((pacienteState) => pacienteState.id === id)
+    const i = pacientes.value.findIndex(paciente => pacienteState.id === id)
 
     pacientes.value[i] = { ...paciente }
   } else {
@@ -50,6 +50,10 @@ const actualizarPaciente = (id) => {
   Object.assign(paciente, pacienteEditar)
 }
 
+const eliminarPaciente = (id) => {
+  paciente.value = pacientes.value.filter(paciente => paciente.id !== id)
+}
+
 </script>
 
 <template>
@@ -66,7 +70,7 @@ const actualizarPaciente = (id) => {
           <p class="text-lg mt-5 text-center mb-10">
             Información de <span class="text-indigo-600 font-bold">Pacientes</span>
           </p>
-          <Paciente v-for="paciente in pacientes" :paciente="paciente" @actualizar-paciente="actualizarPaciente" />
+          <Paciente v-for="paciente in pacientes" :paciente="paciente" @actualizar-paciente="actualizarPaciente" @eliminar-paciente="eliminarPaciente"/>
         </div>
         <p v-else class="mt-10 text-2xl text-center"> No Hay Pacientes</p>
       </div>
